@@ -1,7 +1,6 @@
 package com.rest.services;
 
 import com.rest.Entity.People;
-import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 
@@ -14,7 +13,7 @@ public interface PeopleService {
 
     void cleanPeopleById(long id);
 
-    void newGuyPeople(String guyname, String guyemail);
+    void newGuyPeople(long id, String guyname, String guyemail);
 
     void cleanAllPeople();
 

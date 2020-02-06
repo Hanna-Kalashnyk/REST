@@ -64,8 +64,9 @@ public class PeopleServiceImpl implements PeopleService {
 
 
     @Override
-    public void newGuyPeople(String guyname, String guyemail) {
+    public void newGuyPeople(long id, String guyname, String guyemail) {
         People guy = new People();
+        guy.setId(id);
         guy.setName(guyname);
         guy.setEmail(guyemail);
         peopleRepository.save(guy);

@@ -1,8 +1,6 @@
 package com.rest.Controller;
-
 import com.rest.Entity.People;
 import com.rest.services.PeopleService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -11,7 +9,7 @@ import java.util.List;
 @RequestMapping("/people")
 public class PeopleController {
 
-    @Autowired
+
     private PeopleService peopleService;
 
     public PeopleController(PeopleService peopleService) {
@@ -46,12 +44,12 @@ public class PeopleController {
     }
 
     @PostMapping("/new/{guyname}/{guyemail}")
-    public void newPeople(@PathVariable String guyname, String guyemail) {
-        peopleService.newGuyPeople(guyname, guyemail);
+    public void newPeople(long id, @PathVariable String guyname, @PathVariable String guyemail) {
+        peopleService.newGuyPeople(id, guyname, guyemail);
     }
 
     @PatchMapping("/newname/{id}/{newname}")
-    public void patchPeopleName(@PathVariable long id, @PathVariable String newname) {
+    public void changePeopleName(@PathVariable long id, @PathVariable String newname) {
         peopleService.newName(id, newname);
     }
 

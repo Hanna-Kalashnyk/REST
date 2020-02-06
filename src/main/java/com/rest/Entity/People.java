@@ -4,6 +4,7 @@ import java.util.Objects;
 
 @Entity(name = "People")
 public class People {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
@@ -14,7 +15,12 @@ public class People {
     public People() {
     }
 
-    public People(String name, String email) {
+//    public People(String name, String email) {
+//        new People(4, name, email);
+//    }
+
+    public People(long id, String name, String email) {
+        this.id = id;
         this.name = name;
         this.email = email;
     }
