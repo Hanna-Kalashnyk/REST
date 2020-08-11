@@ -25,24 +25,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     private static final String LOGIN_FAILURE_URL = "/login?error";
     private static final String LOGIN_URL = "/login";
     private static final String LOGOUT_SUCCESS_URL = "/login";
-
-//	private final UserDetailsService userDetailsService;
-
-//	@Autowired
-//	private PasswordEncoder passwordEncoder;
-
-//	@Autowired
-//	public SecurityConfiguration(UserDetailsService userDetailsService) {
-//		this.userDetailsService = userDetailsService;
-//	}
-
     /**
      * The password encoder to use when encrypting passwords.
      */
-//	@Bean
-//	public PasswordEncoder passwordEncoder() {
-//		return NoOpPasswordEncoder.getInstance();
-//	}
     @Bean
     @Override
     public AuthenticationManager authenticationManagerBean() throws Exception { //
@@ -69,14 +54,14 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         // admin user with all privileges
         UserDetails adminUser =
                 User.withUsername("admin")
-                        .password("{noop}password")
+                        .password("{noop}admin")
                         .roles("USER", "ADMIN")
                         .build();
 
         // admin user with all privileges
         UserDetails illiaUser =
                 User.withUsername("illia")
-                        .password("{noop}password")
+                        .password("{noop}illia")
                         .roles("USER")
                         .build();
 

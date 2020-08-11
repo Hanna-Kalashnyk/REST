@@ -16,7 +16,6 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <vaadin.version>14.1.21</vaadin.version>
-        <drivers.dir>${project.basedir}/drivers</drivers.dir>
         <java.version>1.8</java.version>
 
 <!--        <testcontainers.version>1.11.2</testcontainers.version>-->
@@ -35,7 +34,6 @@
             <url>https://maven.vaadin.com/vaadin-prereleases</url>
         </pluginRepository>
     </pluginRepositories>
-
 
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -73,6 +71,11 @@
 
 
     <dependencies>
+        <!-- https://mvnrepository.com/artifact/com.h2database/h2 -->
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+        </dependency>
         <dependency>
             <groupId>com.vaadin</groupId>
             <artifactId>vaadin-spring</artifactId>
@@ -136,26 +139,7 @@
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-core</artifactId>
         </dependency>
-        <!--        will have the dependency of postgres jdbc driver in runtime-->
 
-<!--        <dependency>-->
-<!--            <groupId>org.testcontainers</groupId>-->
-<!--            <artifactId>postgresql</artifactId>-->
-<!--            <version>1.10.6</version>-->
-<!--            <scope>test</scope>-->
-<!--        </dependency>-->
-        <dependency>
-            <groupId>org.postgresql</groupId>
-            <artifactId>postgresql</artifactId>
-            <version>42.2.5</version>
-            <scope>runtime</scope>
-        </dependency>
-<!--        <dependency>-->
-<!--            <groupId>org.testcontainers</groupId>-->
-<!--            <artifactId>testcontainers</artifactId>-->
-<!--            <version>1.10.6</version>-->
-<!--            <scope>test</scope>-->
-<!--        </dependency>-->
         <dependency>
             <groupId>io.rest-assured</groupId>
             <artifactId>rest-assured</artifactId>
@@ -204,13 +188,6 @@
                 </exclusion>
             </exclusions>
         </dependency>
-
-        <!--      -->
-        <!--        <dependency>-->
-        <!--            <groupId>junit</groupId>-->
-        <!--            <artifactId>junit</artifactId>-->
-        <!--            <scope>test</scope>-->
-        <!--        </dependency>-->
         <dependency>
             <groupId>org.assertj</groupId>
             <artifactId>assertj-core</artifactId>
@@ -221,12 +198,6 @@
             <artifactId>mockito-core</artifactId>
             <scope>test</scope>
         </dependency>
-        <!--        <dependency>-->
-        <!--            <groupId>org.junit.platform</groupId>-->
-        <!--            <artifactId>junit-platform-launcher</artifactId>-->
-        <!--            <version>1.5.2</version>-->
-        <!--            <scope>test</scope>-->
-        <!--        </dependency>-->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
@@ -239,30 +210,13 @@
             <version>${junit-jupiter.version}</version>
             <scope>test</scope>
         </dependency>
-
-        <!--                <dependency>-->
-        <!--                    <groupId>org.junit.jupiter</groupId>-->
-        <!--                    <artifactId>junit-jupiter-params</artifactId>-->
-        <!--                    <version>5.6.0</version>-->
-        <!--                    <scope>test</scope>-->
-        <!--                </dependency>-->
         <dependency>
             <groupId>org.jetbrains</groupId>
             <artifactId>annotations</artifactId>
             <version>13.0</version>
             <scope>compile</scope>
         </dependency>
-        <!--        <dependency>-->
-        <!--            <groupId>org.springframework.boot</groupId>-->
-        <!--            <artifactId>spring-boot-test</artifactId>-->
-        <!--            <version>2.2.4.RELEASE</version>-->
-        <!--        </dependency>-->
-        <!--        <dependency>-->
-        <!--            <groupId>org.seleniumhq.selenium</groupId>-->
-        <!--            <artifactId>selenium-chrome-driver</artifactId>-->
-        <!--            <version>4.0.0-alpha-4</version>-->
-        <!--            <scope>test</scope>-->
-        <!--        </dependency>-->
+
         <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -308,46 +262,12 @@
             <artifactId>iron-form</artifactId>
             <version>3.0.1</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.testcontainers/postgresql -->
         <dependency>
-            <groupId>org.testcontainers</groupId>
-            <artifactId>postgresql</artifactId>
-            <version>1.14.3</version>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.13</version>
             <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>org.testcontainers</groupId>
-            <artifactId>testcontainers</artifactId>
-            <version>1.12.5</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.testcontainers</groupId>
-            <artifactId>testcontainers</artifactId>
-            <version>1.10.6</version>
-            <scope>test</scope>
-        </dependency>
-        <!--        <dependency>-->
-<!--            <groupId>org.liquibase</groupId>-->
-<!--            <artifactId>liquibase-core</artifactId>-->
-<!--            <version>3.8.0</version>-->
-<!--            <scope>test</scope>-->
-<!--        </dependency>-->
-        <!--        <dependency>-->
-<!--            <groupId>org.springframework.boot</groupId>-->
-<!--            <artifactId>spring-boot-autoconfigure</artifactId>-->
-<!--            <version>2.2.2.RELEASE</version>-->
-<!--            <scope>test</scope>-->
-<!--        </dependency>-->
-        <!-- https://mvnrepository.com/artifact/com.sun.xml.bind/jaxb-core -->
-        <!--        from test-debugging error-->
-        <!--        <dependency>-->
-        <!--            <groupId>com.sun.xml.bind</groupId>-->
-        <!--            <artifactId>jaxb-core</artifactId>-->
-        <!--            <version>3.0.0-M4</version>-->
-        <!--        </dependency>-->
-
-
     </dependencies>
 
     <!-- tag::bom[] -->
@@ -394,7 +314,6 @@
     <profiles>
         <profile>
             <id>production-mode</id>
-
             <properties>
                 <vaadin.productionMode>true</vaadin.productionMode>
             </properties>
@@ -422,52 +341,6 @@
                 </plugins>
             </build>
         </profile>
-
-        <profile>
-            <id>it</id>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.springframework.boot</groupId>
-                        <artifactId>spring-boot-maven-plugin</artifactId>
-                        <executions>
-                            <execution>
-                                <id>start-spring-boot</id>
-                                <phase>pre-integration-test</phase>
-                                <goals>
-                                    <goal>start</goal>
-                                </goals>
-                            </execution>
-                            <execution>
-                                <id>stop-spring-boot</id>
-                                <phase>post-integration-test</phase>
-                                <goals>
-                                    <goal>stop</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-
-                    <!-- Runs the integration tests (*IT) after the server is started -->
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-failsafe-plugin</artifactId>
-                        <executions>
-                            <execution>
-                                <goals>
-                                    <goal>integration-test</goal>
-                                    <goal>verify</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                        <configuration>
-                            <trimStackTrace>false</trimStackTrace>
-                            <enableAssertions>true</enableAssertions>
-                        </configuration>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
         <profile>
             <id>test</id>
             <build>
@@ -491,8 +364,5 @@
                 </plugins>
             </build>
         </profile>
-
-
     </profiles>
-
 </project>
