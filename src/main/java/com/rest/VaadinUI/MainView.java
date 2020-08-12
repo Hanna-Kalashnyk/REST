@@ -28,9 +28,7 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
 import java.util.List;
 
-//@ActiveProfiles("release")
 @Route(value = MainView.ROUTE)
-//@SecuredByRole("ROLE_ADMIN")
 @SecuredByRole("ROLE_ADMIN")
 @PWA(name = "CRUD Vaadin Flow Project with Spring", shortName = "Vaadin CRUD",
         enableInstallPrompt = false)

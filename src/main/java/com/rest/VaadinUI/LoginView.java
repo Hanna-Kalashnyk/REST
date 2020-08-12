@@ -15,6 +15,7 @@ import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.PasswordField;
 import com.vaadin.flow.component.textfield.TextField;
+import com.vaadin.flow.router.EventUtil;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,9 +42,10 @@ public class LoginView extends VerticalLayout {
         H3 Ilayinfo = new H3("Ilay Secured Vaadin");
         Ilayinfo.setClassName("title");
 
-        Label labelInfo1 = new Label("The password is the same");
+        Label labelInfo1 = new Label("user --> password");
+        Label labelInfo2 = new Label("admin --> admin, illia --> illia");
         labelInfo1.addClassName("green");
-        Label labelInfo2 = new Label("for admin, user, illia, herring@gmail.com, malcolm@gmail.com and jackson@gmail.com");
+        labelInfo2.addClassName("green");
 
         TextField userNameTextField = new TextField();
         userNameTextField.getElement().setAttribute("name", "username");
@@ -87,6 +89,7 @@ public class LoginView extends VerticalLayout {
                 }
                 final Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(userNameTextField.getValue(), passwordField.getValue()));
                 // if authentication was successful we will update the security context and redirect to the page requested first
+
                 if (authentication != null) {
 
                     SecurityContextHolder.getContext().setAuthentication(authentication);
@@ -103,7 +106,7 @@ public class LoginView extends VerticalLayout {
                     }
                 }
             } catch (AuthenticationException ex) {
-                Notification.show("Invalid credentials (for demo use: admin/password)");
+                Notification.show("Invalid credentials");
             }
         });
         loginButton.addClickShortcut(Key.ENTER);
